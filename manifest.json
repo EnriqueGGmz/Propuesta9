@@ -1,0 +1,156 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "store",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.11.5",
+      "toolsId": "0d0dc03f-2d3f-45d2-9324-5ef0e024d143"
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "Store-Sales": {
+          "semanticObject": "Store",
+          "action": "Sales",
+          "title": "{{flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    },
+    "dataSources": {
+      "invoiceRemote": {
+          "uri": "V2/Northwind/Northwind.svc/",
+          "type": "OData",
+          "settings": {
+              "odataVersion": "2.0"
+          }
+      }
+  }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.120.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "store.i18n.i18n"
+        }
+      },
+      "invoice": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "https://fakestoreapi.com/products"
+    }
+    },
+
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "store.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "sample": {
+				"stretch": true
+			},
+      "routes": [
+        {
+          "name": "RouteStoreView",
+          "pattern": ":?query:",
+          "target": [
+            "TargetStoreView"
+          ]
+        },
+        {
+					"name": "TargetStoreViewSecond",
+					"pattern": "RouteStoreViewSecond/{productId}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"TargetStoreViewSecond"
+					]
+				}
+      ],
+      "targets": {
+        "TargetStoreView": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "StoreView",
+          "viewName": "StoreView"
+        },
+        "TargetStoreViewSecond": {
+          "viewType": "XML",
+          "viewName": "StoreViewSecond",
+          "viewId": "StoreViewSecond",
+          "clearControlAggregation": false
+        }       
+      }
+      
+    },
+    "rootView": {
+      "viewName": "store.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "store"
+  }
+}

@@ -1,0 +1,69 @@
+<mvc:View id="_IDGenView1"
+	xmlns="sap.m"
+	xmlns:layout="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:cards="sap.f.cards"
+	xmlns:f="sap.f"
+	xmlns:l="sap.ui.layout"
+	controllerName="store.controller.StoreViewSecond">
+
+    <Page id="_IDGenPage1">
+					<ScrollContainer id="_IDGenScrollContainer1" 
+				vertical="false" 
+				horizontal="false" 
+				class="sapUiContentPadding">
+
+
+
+					<f:Card id="_IDGenCard1">
+					<f:header>
+						<cards:Header id="_IDGenHeader1"
+							title="{invoice>title}"
+							iconSrc="{invoice>image}"
+							iconDisplayShape="Square" />
+					</f:header>
+
+
+				<f:content>
+				<l:VerticalLayout id="_IDGenVerticalLayout1" class="sapUiContentPadding" width="100%">
+				
+				<l:BlockLayout id="_IDGenBlockLayout1">
+				
+				<l:BlockLayoutRow id="_IDGenBlockLayoutRow1">
+				<l:BlockLayoutCell id="_IDGenBlockLayoutCell1" title="Detalles" width="1">
+										
+										<HBox id="_IDGenHBox1" class="sapUiTinyMarginBottom">
+											<Label id="_IDGenLabel1" text="Descripción:" />
+										</HBox>
+										<HBox id="_IDGenHBox2" class="sapUiSmallMarginBottom">
+											<Text id="_IDGenText1" text="{invoice>description}" />
+										</HBox>
+										<HBox id="_IDGenHBox5" class="sapUiTinyMarginBottom">
+											<Label id="_IDGenLabel3" text="Categoría:" />
+										</HBox>
+										<HBox id="_IDGenHBox6" class="sapUiSmallMarginBottom">
+											<Text id="_IDGenText3" text="{invoice>category}" />
+										</HBox>
+										<HBox id="_IDGenHBox4" class="sapUiTinyMarginBottom">
+											<Label id="_IDGenLabel2" text="Precio:" />
+										</HBox>
+										<HBox id="_IDGenHBox" class="sapUiSmallMarginBottom">
+											<Text id="_IDGenText" text="{invoice>price} $" />
+										</HBox>
+									</l:BlockLayoutCell>	
+									
+			</l:BlockLayoutRow>	
+			
+			</l:BlockLayout>
+			
+			</l:VerticalLayout>
+			
+			</f:content>
+			
+			</f:Card>
+			
+			</ScrollContainer>
+	</Page>
+
+
+</mvc:View>

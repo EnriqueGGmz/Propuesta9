@@ -1,0 +1,90 @@
+<mvc:View controllerName="store.controller.StoreView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:cards="sap.f.cards"
+	xmlns:f="sap.f"
+	xmlns:l="sap.ui.layout"
+    height="100%">	
+
+	<Page id="_IDGenPage1" title="MultiStore Online" class="sapUiResponsiveContentPadding">
+
+	
+	<Carousel id="_IDGenCarousel1" class="sapUiContentPadding" loop="true"
+	height="auto"
+			pages="{
+				path: 'invoice>/'
+			}">
+		
+		
+			<customLayout>
+				<CarouselLayout id="_IDGenCarouselLayout1" visiblePagesCount="{settings>/pagesCount}" />
+			</customLayout>
+
+				
+			
+			<ScrollContainer id="_IDGenScrollContainer1" 
+				vertical="false" 
+				horizontal="false" 
+				class="sapUiContentPadding">
+
+
+
+					<f:Card id="_IDGenCard1">
+					<f:header>
+						<cards:Header id="_IDGenHeader1"
+							title="{invoice>title}"
+							iconSrc="{invoice>image}"
+							iconDisplayShape="Square" />
+					</f:header>
+
+
+				<f:content>
+				<l:VerticalLayout id="_IDGenVerticalLayout1" class="sapUiContentPadding" width="100%">
+				
+				<l:BlockLayout id="_IDGenBlockLayout1">
+				
+				<l:BlockLayoutRow id="_IDGenBlockLayoutRow1">
+				<l:BlockLayoutCell id="_IDGenBlockLayoutCell1" title="Información" width="1">					
+
+										<Button id="_IDGenButton2" 
+										text="Mas Detalles" 
+										press="onToPage2"
+										/>
+									
+									
+									
+									</l:BlockLayoutCell>
+									
+									<l:BlockLayoutCell id="_IDGenBlockLayoutCell2" title="Calificación" width="1">
+										<HBox id="_IDGenHBox7" class="sapUiTinyMarginBottom">
+											<Label id="_IDGenLabel4" text="Rating:" />
+										</HBox>
+										<RatingIndicator id="RI_S" maxValue="5" class="sapUiSmallMarginBottom" value="{invoice>rating/rate}" iconSize="16px" tooltip="Rating Tooltip" />
+										<HBox id="_IDGenHBox9" class="sapUiTinyMarginBottom">
+											<Label id="_IDGenLabel5" text="Disponibilidad:" />
+										</HBox>
+										<Button id="_IDGenButton1"
+											text="Consultar"
+											press=".onShowTextInfo(${invoice>rating/count})"
+											width="250px"
+											class="sapUiSmallMarginBottom"
+										ariaHasPopup="Dialog" />
+									</l:BlockLayoutCell>	
+									
+			</l:BlockLayoutRow>	
+			
+			</l:BlockLayout>
+			
+			</l:VerticalLayout>
+			
+			</f:content>
+			
+			</f:Card>
+			
+			</ScrollContainer>
+			
+			</Carousel>
+			
+			</Page>
+
+</mvc:View>
